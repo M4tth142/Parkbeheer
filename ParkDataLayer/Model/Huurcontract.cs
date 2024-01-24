@@ -9,8 +9,17 @@ namespace ParkDataLayer.Model
 {
     public class Huurcontract
     {
-        [Key]
-        [MaxLength(25)]
+        public Huurcontract(string id, DateTime startDatum, DateTime eindDatum, int aantalDagen, int huisId, int huurderId)
+        {
+            Id = id;
+            StartDatum = startDatum;
+            EindDatum = eindDatum;
+            AantalDagen = aantalDagen;
+            HuisId = huisId;
+            HuurderId = huurderId;
+        }
+
+        [Key, MaxLength(25)]
         public string Id { get; set; }
 
         [Required]
@@ -21,5 +30,11 @@ namespace ParkDataLayer.Model
 
         [Required]
         public int AantalDagen { get; set; }
+
+        public int HuisId { get; set; }
+        public Huis Huis { get; set; }
+
+        public int HuurderId { get; set; }
+        public Huurder Huurder { get; set; }
     }
 }

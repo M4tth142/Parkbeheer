@@ -9,11 +9,17 @@ namespace ParkDataLayer.Model
 {
     public class Huurder
     {
-        [Key]
+        public Huurder(string naam, string telefoon, string email, string adres)
+        {
+            Naam = naam;
+            Telefoon = telefoon;
+            Email = email;
+            Adres = adres;
+        }
+
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(100)]
+        [Required, MaxLength(100)]
         public string Naam { get; set; }
 
         [MaxLength(100)]
@@ -26,3 +32,4 @@ namespace ParkDataLayer.Model
         public string Adres { get; set; }
     }
 }
+

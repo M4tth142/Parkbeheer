@@ -15,5 +15,14 @@ namespace ParkDataLayer.Exceptions
         public RepositoryException(string message, Exception innerException) : base(message, innerException)
         {
         }
+
+        public RepositoryException(string message, string paramName) : base(message)
+        {
+            ParamName = paramName;
+        }
+
+        public string ParamName { get; }
+
+
     }
 }

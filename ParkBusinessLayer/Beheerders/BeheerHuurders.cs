@@ -17,13 +17,18 @@ namespace ParkBusinessLayer.Beheerders
         {
             this.repo = repo;
         }
-
-        public void VoegNieuweHuurderToe(string Naam,Contactgegevens contact)
+        /// <summary>
+        /// voeg een nieuwe huurder toe via de interface checkt ook of de huurder al bestaat via de heefthuurder methode
+        /// </summary>
+        /// <param name="Naam"> naam van de huurder</param>
+        /// <param name="contact">object met contactgegevens</param>
+        /// <exception cref="BeheerderException"></exception>
+        public void VoegNieuweHuurderToe(string Naam,ContactgegevensEntity contact)
         {
             try
             {
                 if (repo.HeeftHuurder(Naam, contact)) throw new BeheerderException("huurder bestaat al");
-                Huurder h = new Huurder(Naam, contact);
+                HuurderEntity h = new HuurderEntity(Naam, contact);
                 repo.VoegHuurderToe(h);
             }
             catch(Exception ex)
@@ -31,7 +36,12 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("nieuwe huurder", ex);
             }
         }
-        public void UpdateHuurder(Huurder huurder)
+        /// <summary>
+        /// update de huurder???
+        /// </summary>
+        /// <param name="huurder">huurder object</param>
+        /// <exception cref="BeheerderException"></exception>
+        public void UpdateHuurder(HuurderEntity huurder)
         {
             try
             {
@@ -43,7 +53,13 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("updatehuurder", ex);
             }
         }
-        public Huurder GeefHuurder(int id)
+        /// <summary>
+        /// geef een huurder terug via de interface op basis van id
+        /// </summary>
+        /// <param name="id">id van de huurder</param>
+        /// <returns>een huurder object</returns>
+        /// <exception cref="BeheerderException"></exception>
+        public HuurderEntity GeefHuurder(int id)
         {
             try
             {
@@ -54,7 +70,13 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("geefhuurder", ex);
             }
         }
-        public List<Huurder> GeefHuurders(string naam)
+        /// <summary>
+        /// geef een lijst van huurders terug via de interface op basis van naam ???
+        /// </summary>
+        /// <param name="naam">naam van de huurder in question</param>
+        /// <returns>lijst van huurder objecten </returns>
+        /// <exception cref="BeheerderException"></exception>
+        public List<HuurderEntity> GeefHuurders(string naam)
         {
             try
             {

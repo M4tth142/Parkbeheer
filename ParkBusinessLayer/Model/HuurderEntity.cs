@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace ParkBusinessLayer.Model
 {
-    public class Huurder
+    public class HuurderEntity
     {
         public int Id { get; private set; }
         public string Naam { get; private set; }
-        public Contactgegevens Contactgegevens { get; private set; }
+        public ContactgegevensEntity Contactgegevens { get; private set; }
 
-        public Huurder(int id, string naam, Contactgegevens contactgegevens)
+        public HuurderEntity(int id, string naam, ContactgegevensEntity contactgegevens)
         {
             ZetId(id);
             ZetNaam(naam);
             ZetContactgegevens(contactgegevens);
         }
-        public Huurder(string naam, Contactgegevens contactgegevens)
+        public HuurderEntity(string naam, ContactgegevensEntity contactgegevens)
         {
             ZetNaam(naam);
             ZetContactgegevens(contactgegevens);
@@ -30,7 +30,7 @@ namespace ParkBusinessLayer.Model
             if (string.IsNullOrWhiteSpace(naam)) throw new ParkException("huurder zetnaam");
             Naam = naam;
         }
-        public void ZetContactgegevens(Contactgegevens contactgegevens)
+        public void ZetContactgegevens(ContactgegevensEntity contactgegevens)
         {
             if (contactgegevens == null) throw new ParkException("Huurder zetcontactgegevens");
             Contactgegevens = contactgegevens;

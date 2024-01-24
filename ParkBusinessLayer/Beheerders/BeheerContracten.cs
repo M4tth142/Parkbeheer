@@ -14,12 +14,19 @@ namespace ParkBusinessLayer.Beheerders
         {
             this.repo = repo;
         }
-
-        public void MaakContract(string id,Huurperiode huurperiode, Huurder huurder, Huis huis)
+        /// <summary>
+        /// roep de methode aan om een contract aan te maken via de interface checkt ook of het contract al bestaat via de heeftcontract methode
+        /// </summary>
+        /// <param name="id">id van het aan te maken contract</param>
+        /// <param name="huurperiode">object huurperiod </param>
+        /// <param name="huurder">huurder object</param>
+        /// <param name="huis">huis object</param>
+        /// <exception cref="BeheerderException"></exception>
+        public void MaakContract(string id,HuurperiodeEntity huurperiode, HuurderEntity huurder, HuisEntity huis)
         {
             try
             {
-                Huurcontract contract = new Huurcontract(id,huurperiode,huurder,huis);
+                HuurcontractEntity contract = new HuurcontractEntity(id,huurperiode,huurder,huis);
                 if (repo.HeeftContract(huurperiode.StartDatum, huurder.Id, huis.Id)) 
                     throw new BeheerderException("Maakcontract bestaat al");
                 repo.VoegContractToe(contract);
@@ -29,7 +36,12 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("", ex);
             }
         }
-        public void AnnuleerContract(Huurcontract contract )
+        /// <summary>
+        /// roep de methode aan om een contract te annuleren via de interface
+        /// </summary>
+        /// <param name="contract">contract object</param>
+        /// <exception cref="BeheerderException"></exception>
+        public void AnnuleerContract(HuurcontractEntity contract )
         {
             try
             {
@@ -40,7 +52,13 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("", ex);
             }
         }
-        public void UpdateContract(Huurcontract contract)
+
+        /// <summary>
+        /// roep de methode aan om een contract te updaten via de interface checkt ook of het contract bestaat via de heeftcontract methode
+        /// </summary>
+        /// <param name="contract"></param>
+        /// <exception cref="BeheerderException"></exception>
+        public void UpdateContract(HuurcontractEntity contract)
         {
             try
             {
@@ -52,7 +70,13 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("", ex);
             }
         }
-        public Huurcontract GeefContract(string id)
+        /// <summary>
+        /// roep de methode aan om een contract te geven via de interface
+        /// </summary>
+        /// <param name="id">id om een bepaald contract te zoeken</param>
+        /// <returns></returns>
+        /// <exception cref="BeheerderException"></exception>
+        public HuurcontractEntity GeefContract(string id)
         {
             try
             {
@@ -63,7 +87,14 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("", ex);
             }
         }
-        public List<Huurcontract> GeefContracten(DateTime dtBegin,DateTime? dtEinde)
+        /// <summary>
+        /// roep de methode aan om een lijst van alle contracten te geven via de interface met een bepaalde startdatum en einddatum
+        /// </summary>
+        /// <param name="dtBegin">begindatum</param>
+        /// <param name="dtEinde">einddatum</param>
+        /// <returns> een lijst van contracten</returns>
+        /// <exception cref="BeheerderException"></exception>
+        public List<HuurcontractEntity> GeefContracten(DateTime dtBegin,DateTime? dtEinde)
         {
             try
             {

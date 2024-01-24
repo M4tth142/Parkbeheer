@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace ParkBusinessLayer.Model
 {
-    public class Park
+    public class ParkEntity
     {
         public string Id { get; private set; }
         public string Naam { get; private set; }
         public string Locatie { get; private set; }
-        private List<Huis> _huis =new List<Huis>(){ };
+        private List<HuisEntity> _huis =new List<HuisEntity>(){ };
 
-        public Park(string id, string naam, string locatie, List<Huis> huis) : this(id,naam,locatie)
+        public ParkEntity(string id, string naam, string locatie, List<HuisEntity> huis) : this(id,naam,locatie)
         {
             _huis = huis;
         }
-        public Park(string id, string naam, string locatie)
+        public ParkEntity(string id, string naam, string locatie)
         {
             ZetId(id);
             ZetNaam(naam);
@@ -30,16 +30,16 @@ namespace ParkBusinessLayer.Model
             if (string.IsNullOrWhiteSpace(naam)) throw new ParkException("Park zetnaam");
             Naam = naam;
         }
-        public IReadOnlyList<Huis> Huizen()
+        public IReadOnlyList<HuisEntity> Huizen()
         {
             return _huis.AsReadOnly();
         }
-        public void VoegHuisToe(Huis huis)
+        public void VoegHuisToe(HuisEntity huis)
         {
             if (_huis.Contains(huis)) throw new ParkException("voeghuistoe");
             _huis.Add(huis);
         }
-        public void VerwijderHuis(Huis huis)
+        public void VerwijderHuis(HuisEntity huis)
         {
             if (!_huis.Contains(huis)) throw new ParkException("verwijderhuis");
             _huis.Remove(huis);

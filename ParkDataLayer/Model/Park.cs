@@ -1,23 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ParkDataLayer.Model
 {
     public class Park
     {
-        [Key]
-        [MaxLength(20)]
+        public Park()
+        {
+            Huizen = new List<Huis>();
+        }
+
+        public Park(string id, string naam, string locatie)
+        {
+            Id = id;
+            Naam = naam;
+            Locatie = locatie;
+        }
+
+        [Key, MaxLength(20)]
         public string Id { get; set; }
 
-        [Required]
-        [MaxLength(250)]
+        [Required, MaxLength(250)]
         public string Naam { get; set; }
 
         [MaxLength(500)]
         public string Locatie { get; set; }
+
+        // Navigation property for the houses in the park
+        public ICollection<Huis> Huizen { get; set; }
     }
 }

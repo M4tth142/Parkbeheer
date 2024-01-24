@@ -9,11 +9,11 @@ namespace ParkBusinessLayer.Interfaces
 {
     public interface IHuurderRepository
     {
-        Huurder VoegHuurderToe(Huurder h);
-        bool HeeftHuurder(string naam, Contactgegevens contact);
+        HuurderEntity VoegHuurderToe(HuurderEntity h);
+        bool HeeftHuurder(string naam, ContactgegevensEntity contact);
         bool HeeftHuurder(int id);
-        void UpdateHuurder(Huurder huurder);
-        Huurder GeefHuurder(int id);
-        List<Huurder> GeefHuurders(string naam);
+        void UpdateHuurder(HuurderEntity huurder);
+        HuurderEntity GeefHuurder(int id);
+        List<HuurderEntity> GeefHuurders(string naam);
     }
 }

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkDataLayer", "ParkDataLayer\ParkDataLayer.csproj", "{771927FD-587C-4B48-B35D-7802E3C2359F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkBusinessLayer", "ParkBusinessLayer\ParkBusinessLayer.csproj", "{C135E5A0-98AE-40A9-B3EE-A10CF45EAF24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{771927FD-587C-4B48-B35D-7802E3C2359F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{771927FD-587C-4B48-B35D-7802E3C2359F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{771927FD-587C-4B48-B35D-7802E3C2359F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{771927FD-587C-4B48-B35D-7802E3C2359F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C135E5A0-98AE-40A9-B3EE-A10CF45EAF24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C135E5A0-98AE-40A9-B3EE-A10CF45EAF24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C135E5A0-98AE-40A9-B3EE-A10CF45EAF24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C135E5A0-98AE-40A9-B3EE-A10CF45EAF24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77A72278-C975-43E6-A69B-52BBE996605F}
+	EndGlobalSection
+EndGlobal

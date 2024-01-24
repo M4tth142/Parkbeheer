@@ -17,13 +17,19 @@ namespace ParkBusinessLayer.Beheerders
         {
             this.repo = repo;
         }
-
-        public void VoegNieuwHuisToe(string straat,int nummer,Park park)
+        /// <summary>
+        /// voegt een nieuwe huis toe aan de database via de interface checkt ook of het huis al bestaat via de heefthuis methode
+        /// </summary>
+        /// <param name="straat">straatnaam</param>
+        /// <param name="nummer">huisnr</param>
+        /// <param name="park">park object mee te geven</param>
+        /// <exception cref="BeheerderException"></exception>
+        public void VoegNieuwHuisToe(string straat,int nummer,ParkEntity park)
         {
             try
             {
                 if (repo.HeeftHuis(straat, nummer, park)) throw new BeheerderException("voeghuistoe");
-                Huis h = new Huis(straat,nummer, park);
+                HuisEntity h = new HuisEntity(straat,nummer, park);
                 repo.VoegHuisToe(h);
 
             }
@@ -32,7 +38,12 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("", ex);
             }
         }
-        public void UpdateHuis(Huis huis)
+        /// <summary>
+        /// roep de methode aan om een huis te updaten via de interface checkt ook of het huis bestaat via de heefthuis methode
+        /// </summary>
+        /// <param name="huis">welk huis object </param>
+        /// <exception cref="BeheerderException"></exception>
+        public void UpdateHuis(HuisEntity huis)
         {
             try
             {
@@ -44,7 +55,12 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("", ex);
             }
         }
-        public void ArchiveerHuis(Huis huis)
+        /// <summary>
+        /// zet het huis op niet actief via de interface checkt ook of het huis bestaat via de heefthuis methode
+        /// </summary>
+        /// <param name="huis"> welk huisobject </param>
+        /// <exception cref="BeheerderException"></exception>
+        public void ArchiveerHuis(HuisEntity huis)
         {
             try
             {
@@ -57,7 +73,13 @@ namespace ParkBusinessLayer.Beheerders
                 throw new BeheerderException("", ex);
             }
         }
-        public Huis GeefHuis(int id)
+        /// <summary>
+        /// zoek een huis via de interface met het gegeven id
+        /// </summary>
+        /// <param name="id">id voor het huis te zoeken</param>
+        /// <returns>huis object</returns>
+        /// <exception cref="BeheerderException"></exception>
+        public HuisEntity GeefHuis(int id)
         {
             try
             {

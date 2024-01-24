@@ -1,8 +1,8 @@
 ﻿namespace ParkBusinessLayer.Model
 {
-    public class Contactgegevens
+    public class ContactgegevensEntity
     {
-        public Contactgegevens(string email, string tel, string adres)
+        public ContactgegevensEntity(string email, string tel, string adres)
         {
             Email = email;
             Tel = tel;

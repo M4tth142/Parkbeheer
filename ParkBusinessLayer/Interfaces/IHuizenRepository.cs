@@ -9,10 +9,10 @@ namespace ParkBusinessLayer.Interfaces
 {
     public interface IHuizenRepository
     {
-        bool HeeftHuis(string straat, int nummer, Park park);
-        Huis VoegHuisToe(Huis h);
+        bool HeeftHuis(string straat, int nummer, ParkEntity park);
+        HuisEntity VoegHuisToe(HuisEntity h);
         bool HeeftHuis(int id);
-        void UpdateHuis(Huis huis);
-        Huis GeefHuis(int id);
+        void UpdateHuis(HuisEntity huis);
+        HuisEntity GeefHuis(int id);
     }
 }

@@ -10,11 +10,11 @@ namespace ParkBusinessLayer.Interfaces
     public interface IContractenRepository
     {
         bool HeeftContract(DateTime startDatum, int huurderid, int huisid);
-        void VoegContractToe(Huurcontract contract);
-        void AnnuleerContract(Huurcontract contract);
+        void VoegContractToe(HuurcontractEntity contract);
+        void AnnuleerContract(HuurcontractEntity contract);
         bool HeeftContract(string id);
-        void UpdateContract(Huurcontract contract);
-        Huurcontract GeefContract(string id);
-        List<Huurcontract> GeefContracten(DateTime dtBegin, DateTime? dtEinde);
+        void UpdateContract(HuurcontractEntity contract);
+        HuurcontractEntity GeefContract(string id);
+        List<HuurcontractEntity> GeefContracten(DateTime dtBegin, DateTime? dtEinde);
     }
 }

@@ -2,9 +2,9 @@
 
 namespace ParkBusinessLayer.Model
 {
-    public class Huurperiode
+    public class HuurperiodeEntity
     {
-        public Huurperiode(DateTime startDatum, int aantaldagen)
+        public HuurperiodeEntity(DateTime startDatum, int aantaldagen)
         {
             StartDatum = startDatum;
             EindDatum = startDatum.AddDays(aantaldagen);
@@ -16,7 +16,7 @@ namespace ParkBusinessLayer.Model
 
         public override bool Equals(object obj)
         {
-            return obj is Huurperiode huurperiode &&
+            return obj is HuurperiodeEntity huurperiode &&
                    StartDatum == huurperiode.StartDatum &&
                    EindDatum == huurperiode.EindDatum &&
                    Aantaldagen == huurperiode.Aantaldagen;

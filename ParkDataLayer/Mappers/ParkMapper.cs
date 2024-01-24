@@ -1,12 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ParkBusinessLayer.Model;
+using ParkDataLayer.Model;
 
 namespace ParkDataLayer.Mappers
 {
-    internal class ParkMapper
+    public class ParkMapper
     {
+        public static Park MapEntityToPark(ParkEntity park)
+        {
+            if (park == null) return null;
+
+            Park p = new Park(
+                park.Id,
+                park.Naam,
+                park.Locatie
+            );
+
+            return p;
+        }
+
+        public static ParkEntity MapParkToEntity(Park park)
+        {
+            if (park == null) return null;
+
+            ParkEntity parkEntity = new ParkEntity(park.Id, park.Naam, park.Locatie);
+
+            return parkEntity;
+        }
+
     }
 }
